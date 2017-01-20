@@ -42,4 +42,8 @@ total 4
       // text
 (3.6) compile it with javac, then run it with java
 
+(4.1) Prints a String and then terminate the line. This method behaves as though it invokes print(String) and then println().
+(4.2) in,  its of type InputStream.
+
+
 
