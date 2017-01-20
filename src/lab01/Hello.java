@@ -19,7 +19,8 @@ public class Hello
 	public static void main( String[] args ){
 		long startTime = System.nanoTime();
 		System.out.println("Programming is not a spectator sport!");
-		long estimatedTime = System.nanoTime() - startTime;
+		double x = 1000000;
+		double estimatedTime = (System.nanoTime() - startTime) / x;
 		System.out.println("Time to execute: " + estimatedTime + "ns");
 		System.exit(0);
 	}
