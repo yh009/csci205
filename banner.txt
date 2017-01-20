@@ -1,0 +1,14 @@
+/* *****************************************
+* CSCI205 - Software Engineering and Design
+* Spring 2017
+* Instructor: Your instructor
+* Section: List time of your lecture
+*
+* Name: Yuxuan Huang
+* Date: 01/19/2017
+*
+* Lab / Assignment: Lab01
+*
+* Description:
+*
+* *****************************************/
