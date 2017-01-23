@@ -2,8 +2,8 @@
  * CSCI205 - Software Engineering and Design
  * Spring 2017
  *
- * Name: YOUR NAME
- * Date: ??/??/????
+ * Name: Yuxuan Huang
+ * Date: 01/22/2017
  *
  * Lab: Lab02, Exercise 1
  *

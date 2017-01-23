@@ -3,7 +3,7 @@
  * Spring 2017
  *
  * Name: Yuxuan Huang
- * Date: 22/01/2017
+ * Date: 01/22/2017
  *
  * Lab: Lab02, Exercise 2
  *
