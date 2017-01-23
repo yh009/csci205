@@ -21,21 +21,42 @@ import java.util.Scanner;
 
 public class FtoC {
     public static void main(String[] args) {
+    	boolean check = true;
+    	while(check){
+    		check = false;
+    		// Prompt user for a Fahrenheit temp
+	        System.out.print("Enter a temperature in Fahrenheit: ");
 
-        // Prompt user for a Fahrenheit temp
-        System.out.print("Enter a temperature in Fahrenheit: ");
+	        // Create the Scanner object, attached to console input
+	        Scanner in = new Scanner(System.in);
 
-        // Create the Scanner object, attached to console input
-        Scanner in = new Scanner(System.in);
+	        // Read and store the Fahrenheit temp
+	        int fahTemp = in.nextInt();
 
-        // Read and store the Fahrenheit temp
-        int fahTemp = in.nextInt();
+	        // Convert the temp to Celsius
+	        float celTemp = (float)5/(float)9*(fahTemp - 32);
 
-        // Convert the temp to Celsius
-        float celTemp = (float)5/(float)9*(fahTemp - 32);
+	        // Output the results with correct formatting
+	        System.out.printf("%d F = %.1f C\n",fahTemp,celTemp);
 
-        // Output the results with correct formatting
-        System.out.printf("%d F = %.1f C\n",fahTemp,celTemp);
+	        if (celTemp <= 0){
+	        	System.out.print("Brrr... it is FREEZING out!\n");
+	        } else if (celTemp <= 15){
+	        	System.out.print("It's a bit cool out.\n");
+	        } else if (celTemp <= 30){
+	        	System.out.print("It's comfortably warm.\n");
+	        } else {
+	        	System.out.print("It's Hot! I need A/C!\n");
+	        }
+	        System.out.print("Try again? [y | n]: ");
+	        String result = in.next();
+	        if (result.equals("y") || result.equals("Y")){
+	        	check = true;
+	        }
 
+    	}
+    	System.out.print("Goodbye!\n");
+
+        
     }
 }
