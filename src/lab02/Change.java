@@ -56,11 +56,11 @@ public class Change {
             // Output the results
             System.out.printf(
                 "%4d pennies breaks down to:\n"
-                +"%4d dollars  = $%.2f\n"
-                +"%4d quarters = $%.2f\n"
-                +"%4d dimes    = $%.2f\n"
-                +"%4d nickels  = $%.2f\n"
-                +"%4d pennies  = $%.2f\n",
+                +"%4d dollars  = $%5.2f\n"
+                +"%4d quarters = $%5.2f\n"
+                +"%4d dimes    = $%5.2f\n"
+                +"%4d nickels  = $%5.2f\n"
+                +"%4d pennies  = $%5.2f\n",
                 total_pennies,
                 dollars, dollars * PENNIES_PER_DOLLAR / 100.0,
                 quarters, quarters * PENNIES_PER_QUARTER / 100.0,
