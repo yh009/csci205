@@ -1,0 +1,61 @@
+/* *****************************************
+* CSCI205 - Software Engineering and Design
+* Spring 2017
+* Instructor: Prof Christopher Dancy
+* Section: 1 pm
+*
+* Name: Yuxuan Huang
+* Date: 01/25/2017
+*
+* Lab / Assignment: Lab03
+*
+* Description:
+* This file contains all text answers for this lab assignment
+*
+* *****************************************/
+
+###### Q1 #######
+commit 77e8367389356e8d255850dcf0018f5c4e5c9400
+Author: Yuxuan Huang <yh009@bucknell.edu>
+Date:   Wed Jan 25 13:50:50 2017 -0500
+
+    more work
+
+commit 827b57df1ef1aea8105fca7eb8cfcac1e02423c2
+Author: Yuxuan Huang <yh009@bucknell.edu>
+Date:   Wed Jan 25 13:49:31 2017 -0500
+
+    Init commit
+###### Q2 #######
+77e8367 (HEAD, myFeature, master) more work
+827b57d Init commit
+
+###### Q3 #######
+8f1dc2e (HEAD, myFeature) test2
+c8774ac test1
+77e8367 (master) more work
+827b57d Init commit
+
+###### Q4 #######
+@@ -2,5 +2,7 @@ public class Main {
+     public static void main( String[] args ) {
+        System.out.println( "Init commit" );
+        System.out.println( "more wokr" );
++       System.out.println( "test again");
++       System.out.println( "again");
+     }
+ }
+
+###### Q5 #######
+8f1dc2e (myFeature) test2
+c8774ac test1
+77e8367 (HEAD, master) more work
+827b57d Init commit
+
+###### Q6 #######
+8f1dc2e (HEAD, myFeature, master) test2
+c8774ac test1
+77e8367 more work
+827b57d Init commit
+
+
