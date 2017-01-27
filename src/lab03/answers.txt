@@ -58,4 +58,10 @@ c8774ac test1
 77e8367 more work
 827b57d Init commit
 
+###### 4.2 #######
+The highest i can go before overflow is 46.
+I think for the non-recursive version, the runtime is about O(n) for computing the nth Fibonacci because the function goes through the while loop n times and an addition c=a+b once per iteration. However, for the recursive version, computing nth Fibonacci means execute F(n-1) + F(n-2) statements. Therefore, the big O is O(1.6^n) for recursive method, which is exponential runtime.
+
+
+
 
