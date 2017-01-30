@@ -1,0 +1,97 @@
+/* *****************************************
+* CSCI205 - Software Engineering and Design
+* Spring 2017
+* Instructor: Prof Christopher Dancy
+* Section: 1 pm
+*
+* Name: Yuxuan Huang
+* Date: 01/30/2017
+*
+* Lab / Assignment: Lab04
+*
+* Description:
+* This txt contents text answers to all lab04 questions
+*
+* *****************************************/
+
+
+######## Q1 #########
+[yh009@brki164-lnx-20 tempGitRepo]$ git log --decorate --oneline --all
+8f1dc2e (HEAD, myFeature, master) test2
+c8774ac test1
+696b96e test4
+7ce1845 test3
+77e8367 more work
+827b57d Init commit
+
+
+[yh009@brki164-lnx-20 tempGitRepo]$ git branch
+* master
+  myFeature
+
+
+######## Q2 #########
+[yh009@brki164-lnx-20 tempGitRepo]$ git log --decorate --oneline --all
+8f1dc2e (myFeature) test2
+c8774ac test1
+696b96e (HEAD, master) test4
+7ce1845 test3
+77e8367 more work
+827b57d Init commit
+
+
+####### Q3 #########
+[yh009@brki164-lnx-20 tempGitRepo]$ git log --decorate --oneline --graph --all
+* 6c2cbc6 (HEAD, bugFix) Fixed bug
+| * 8f1dc2e (myFeature) test2
+| * c8774ac test1
+|/  
+* 696b96e (master) test4
+* 7ce1845 test3
+* 77e8367 more work
+* 827b57d Init commit
+
+####### Q4 #########
+[yh009@brki164-lnx-20 tempGitRepo]$ git log --decorate --oneline --graph --all
+* 6c2cbc6 (HEAD, master, bugFix) Fixed bug
+| * 8f1dc2e (myFeature) test2
+| * c8774ac test1
+|/  
+* 696b96e test4
+* 7ce1845 test3
+* 77e8367 more work
+* 827b57d Init commit
+
+####### Q5 #########
+public class Main {
+    public static void main( String[] args ) {
+        System.out.println( "Init commit" );
+        System.out.println( "more wokr" );
+<<<<<<< HEAD
+	System.out.println( "test again");
+        System.out.println( "again");
+        System.out.println("Fixed bug");
+=======
+       	#System.out.println( "test again");
+        #System.out.println( "again");
+>>>>>>> myFeature
+    }
+}
+
+######## Q6 ########
+[yh009@brki164-lnx-20 tempGitRepo]$ git log --decorate --oneline --graph --all
+*   d411ee0 (HEAD, master) Merged myFeature
+|\  
+| * 4b7e903 (myFeature) test2 change made
+| * 8f1dc2e test2
+| * c8774ac test1
+* | 6c2cbc6 Fixed bug
+|/  
+* 696b96e test4
+* 7ce1845 test3
+* 77e8367 more work
+* 827b57d Init commit
+
+
+
+
