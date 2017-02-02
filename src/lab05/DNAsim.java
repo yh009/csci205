@@ -143,7 +143,7 @@ public class DNAsim {
         for (int i = 0; i < length; i++) {
             if (CG_alt == false) {
                 if (dna[i] == 'C' && dna[i + 1] == 'G') {
-                    CG_ctr++;
+                    CG_ctr=CG_ctr+2;
                     CG_alt = true;
                 }
                 else {
