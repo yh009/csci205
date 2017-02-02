@@ -9,7 +9,7 @@
 * Project: csci205
 * Package: lab05
 * File: DNAsim
-* Description:
+* Description: Generating a simulated DNA sequence for analyzsis
 *
 * ****************************************
  */
