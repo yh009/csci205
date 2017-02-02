@@ -38,6 +38,9 @@ public class Hello {
         System.out.println(Arrays.toString(x));
     }
 
+    /**
+     * Generate an array of random numbers
+     */
     private static int[] getArrayOfRandomNums() {
         Random rand = new Random();
         int[] x = new int[NUM_INTS];
@@ -47,6 +50,9 @@ public class Hello {
         return x;
     }
 
+    /**
+     * Greet the user
+     */
     private static void greetUser() {
         Scanner in = new Scanner(System.in);
         System.out.print("Hello. What is your name? ");
