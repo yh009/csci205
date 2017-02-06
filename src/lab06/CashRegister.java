@@ -78,7 +78,7 @@ public class CashRegister {
      *
      * @param initCash - the amount of cash to be placed in drawer
      */
-    void startDay(double initCash) {
+    public void startDay(double initCash) {
         this.cashInDrawer = initCash;
     }
 
@@ -87,7 +87,7 @@ public class CashRegister {
      *
      * @return the amount of cash in the drawer
      */
-    double finishDay() {
+    public double finishDay() {
         double result = this.cashInDrawer;
         this.cashInDrawer = 0;
         return result;
@@ -98,7 +98,7 @@ public class CashRegister {
      *
      * @return true/false if the register is ready for new transaction
      */
-    boolean startTransaction() {
+    public boolean startTransaction() {
         if (this.isInTransaction() == false && this.cashInDrawer > 0.0) {
             this.isInTransaction = true;
 
@@ -116,7 +116,7 @@ public class CashRegister {
      *
      * @return true/false if the transaction can be closed
      */
-    boolean finishTransaction() {
+    public boolean finishTransaction() {
         if (this.isInTransaction() == true && this.getAmountOwed() == 0.0) {
             this.isInTransaction = false;
 
@@ -136,7 +136,7 @@ public class CashRegister {
      *
      * @param itemAmount - the amount of the item being scanned
      */
-    void scanItem(double itemAmount) {
+    public void scanItem(double itemAmount) {
         this.transTotal += itemAmount;
         this.numItemsInTrans++;
     }
@@ -146,7 +146,7 @@ public class CashRegister {
      *
      * @return the total amount of the transaction
      */
-    double getTransactionTotal() {
+    public double getTransactionTotal() {
         return this.transTotal;
     }
 
@@ -155,7 +155,7 @@ public class CashRegister {
      *
      * @return total number of items of the transaction
      */
-    int getNumItemsInTrans() {
+    public int getNumItemsInTrans() {
         return this.numItemsInTrans;
     }
 
@@ -164,7 +164,7 @@ public class CashRegister {
      *
      * @return amount paid for the transaction
      */
-    double getAmountPaid() {
+    public double getAmountPaid() {
         return this.amountPaid;
     }
 
@@ -173,7 +173,7 @@ public class CashRegister {
      *
      * @return name of the cash register
      */
-    private String getName() {
+    public String getName() {
         return this.sName;
     }
 
@@ -183,7 +183,7 @@ public class CashRegister {
      * @return boolean whether the cash register is in the middle of a
      * transaction
      */
-    boolean isInTransaction() {
+    public boolean isInTransaction() {
         return this.isInTransaction;
     }
 
@@ -192,7 +192,7 @@ public class CashRegister {
      *
      * @return amount still owed for the transaction
      */
-    double getAmountOwed() {
+    public double getAmountOwed() {
         return this.getTransactionTotal() - this.getAmountPaid();
     }
 
@@ -201,7 +201,7 @@ public class CashRegister {
      *
      * @param name - new name of the register
      */
-    void setName(String name) {
+    public void setName(String name) {
         this.sName = name;
     }
 
@@ -212,7 +212,7 @@ public class CashRegister {
      * @return current balance, positive if overpaid, negative if customer still
      * owe
      */
-    double collectPayment(double paid) {
+    public double collectPayment(double paid) {
         this.amountPaid += paid;
         this.cashInDrawer += paid;
         double result = this.getAmountPaid() - this.getTransactionTotal();
