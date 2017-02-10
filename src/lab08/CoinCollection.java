@@ -32,7 +32,7 @@ public class CoinCollection {
      * collection when created.
      */
     public CoinCollection() {
-        this.coinCount = new int[this.coinValues.length];
+        this.coinCount = new int[Coin.values().length];
     }
 
     /**
@@ -42,7 +42,7 @@ public class CoinCollection {
      * @param count - The number of coins to add of the specified type
      */
     public void addCoins(Coin coinType, int count) {
-        // TODO - FINISH THIS METHOD
+        this.coinCount[coinType.ordinal()] += count;
     }
 
     /**
@@ -54,7 +54,15 @@ public class CoinCollection {
      * remove more coins than we have, preventing negative coin amounts.
      */
     public int removeCoins(Coin coinType, int count) {
-        // TODO -- FINISH THIS METHOD!
+        if (this.coinCount[coinType.ordinal()] >= count) {
+            this.coinCount[coinType.ordinal()] -= count;
+            return count;
+        }
+        else {
+            int result = this.coinCount[coinType.ordinal()];
+            this.coinCount[coinType.ordinal()] = 0;
+            return result;
+        }
     }
 
     /**
@@ -73,7 +81,25 @@ public class CoinCollection {
      * @return the total amount of the collection in dollars
      */
     public double getTotal() {
-        // TODO - FINISH THIS METHOD
+        double total = 0.0;
+        for (int i = 0; i < Coin.values().length; i++) {
+            total += coinCount[i] * coinValues[i];
+        }
+        return total;
+    }
+
+    /**
+     * Print readable status of the class
+     *
+     * @return formatted String output of class status
+     */
+    @Override
+    public String toString() {
+        return String.format("NICKEL:%d DIME:%d QUARTER:%d = $%.2f",
+                             this.getCount(Coin.NICKEL),
+                             this.getCount(Coin.DIME),
+                             this.getCount(Coin.QUARTER),
+                             this.getTotal());
     }
 
     /**
