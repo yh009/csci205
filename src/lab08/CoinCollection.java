@@ -19,8 +19,7 @@ public class CoinCollection {
     /**
      * An array to store the individual values of each coin
      */
-    private static final double[] coinValues = {0.05, 0.10, 0.25};
-
+    //private static final double[] coinValues = {0.05, 0.10, 0.25};
     /**
      * array of integers contains actual count of each coin type in the
      * collection
@@ -82,8 +81,8 @@ public class CoinCollection {
      */
     public double getTotal() {
         double total = 0.0;
-        for (int i = 0; i < Coin.values().length; i++) {
-            total += coinCount[i] * coinValues[i];
+        for (Coin coin : Coin.values()) {
+            total += this.getCount(coin) * coin.getValue();
         }
         return total;
     }
