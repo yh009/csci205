@@ -94,11 +94,19 @@ public class CoinCollection {
      */
     @Override
     public String toString() {
-        return String.format("NICKEL:%d DIME:%d QUARTER:%d = $%.2f",
+
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < Coin.values().length; i++) {
+            result = result.append(String.format("%s:%d ", Coin.values()[i],
+                                                 this.getCount(Coin.values()[i])));
+        }
+        result.append(String.format("= %.2f", this.getTotal()));
+        return result.toString();
+        /*return String.format("NICKEL:%d DIME:%d QUARTER:%d = $%.2f",
                              this.getCount(Coin.NICKEL),
                              this.getCount(Coin.DIME),
                              this.getCount(Coin.QUARTER),
-                             this.getTotal());
+                             this.getTotal());*/
     }
 
     /**
