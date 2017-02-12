@@ -9,7 +9,7 @@
 * Project: csci205
 * Package: lab08
 * File: AddRemoveChoices
-* Description:
+* Description: A simple enumerated type to represent buttons in JOptionPane
 *
 * ****************************************
  */

@@ -155,6 +155,13 @@ public class CoinCollectionClient {
 
     }
 
+    /**
+     * Build the string to represent the current status of the CoinCollection
+     * instance
+     *
+     * @param c the CoinCollection instance to make string out of
+     * @return a string represent the current status of the c
+     */
     public static String stringBuild(CoinCollection c) {
         StringBuilder myString = new StringBuilder();
         myString = myString.append("You have:\n");
