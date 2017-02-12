@@ -38,12 +38,22 @@ public class CoinCollectionClient {
         myCoins.addCoins(Coin.QUARTER, 7);
 
         while (true) {
-            int n = JOptionPane.showOptionDialog(null, String.format(
+            StringBuilder stringOne = new StringBuilder();
+            for (int i = 0; i < Coin.values().length; i++) {
+                stringOne = stringOne.append(String.format("%s:%d\n",
+                                                           Coin.values()[i],
+                                                           myCoins.getCount(
+                                                                   Coin.values()[i])));
+            }
+            stringOne.append(String.format("TOTAL = %.2f\nSelect your action:",
+                                           myCoins.getTotal()));
+            int n = JOptionPane.showOptionDialog(null, /*String.format(
                                                  "NICKEL:%d\nDIME:%d\nQUARTER:%d\nTOTAL = $%.2f\nSelect your action:",
                                                  myCoins.getCount(Coin.NICKEL),
                                                  myCoins.getCount(Coin.DIME),
                                                  myCoins.getCount(Coin.QUARTER),
-                                                 myCoins.getTotal()),
+                                                 myCoins.getTotal()),*/
+                                                 stringOne.toString(),
                                                  "Add or remove?",
                                                  JOptionPane.YES_NO_CANCEL_OPTION,
                                                  JOptionPane.QUESTION_MESSAGE,
@@ -60,12 +70,13 @@ public class CoinCollectionClient {
                                                           null, Coin.values(),
                                                           null);
                 if (result == null) {
-                    JOptionPane.showMessageDialog(null, String.format(
+                    JOptionPane.showMessageDialog(null, /*String.format(
                                                   "You have:\nNICKEL:%d\nDIME:%d\nQUARTER:%d\nTOTAL = $%.2f\n\nGoodbye!",
                                                   myCoins.getCount(Coin.NICKEL),
                                                   myCoins.getCount(Coin.DIME),
                                                   myCoins.getCount(Coin.QUARTER),
-                                                  myCoins.getTotal()),
+                                                  myCoins.getTotal()),*/
+                                                  stringBuild(myCoins),
                                                   "Goodbye!",
                                                   JOptionPane.PLAIN_MESSAGE);
                     break;
@@ -77,7 +88,7 @@ public class CoinCollectionClient {
                                                                   "Add coins",
                                                                   JOptionPane.QUESTION_MESSAGE);
                         if (sNum == null) {
-                            JOptionPane.showMessageDialog(null, String.format(
+                            JOptionPane.showMessageDialog(null, /*String.format(
                                                           "You have:\nNICKEL:%d\nDIME:%d\nQUARTER:%d\nTOTAL = $%.2f\n\nGoodbye!",
                                                           myCoins.getCount(
                                                                   Coin.NICKEL),
@@ -85,7 +96,8 @@ public class CoinCollectionClient {
                                                                   Coin.DIME),
                                                           myCoins.getCount(
                                                                   Coin.QUARTER),
-                                                          myCoins.getTotal()),
+                                                          myCoins.getTotal()),*/
+                                                          stringBuild(myCoins),
                                                           "Goodbye!",
                                                           JOptionPane.PLAIN_MESSAGE);
                             break;
@@ -104,7 +116,7 @@ public class CoinCollectionClient {
                                                                   "Remove coins",
                                                                   JOptionPane.QUESTION_MESSAGE);
                         if (sNum == null) {
-                            JOptionPane.showMessageDialog(null, String.format(
+                            JOptionPane.showMessageDialog(null, /*String.format(
                                                           "You have:\nNICKEL:%d\nDIME:%d\nQUARTER:%d\nTOTAL = $%.2f\n\nGoodbye!",
                                                           myCoins.getCount(
                                                                   Coin.NICKEL),
@@ -112,7 +124,8 @@ public class CoinCollectionClient {
                                                                   Coin.DIME),
                                                           myCoins.getCount(
                                                                   Coin.QUARTER),
-                                                          myCoins.getTotal()),
+                                                          myCoins.getTotal()),*/
+                                                          stringBuild(myCoins),
                                                           "Goodbye!",
                                                           JOptionPane.PLAIN_MESSAGE);
                             break;
@@ -126,12 +139,14 @@ public class CoinCollectionClient {
 
             }
             else {
-                JOptionPane.showMessageDialog(null, String.format(
+                JOptionPane.showMessageDialog(null, /*String.format(
                                               "You have:\nNICKEL:%d\nDIME:%d\nQUARTER:%d\nTOTAL = $%.2f\n\nGoodbye!",
                                               myCoins.getCount(Coin.NICKEL),
                                               myCoins.getCount(Coin.DIME),
                                               myCoins.getCount(Coin.QUARTER),
-                                              myCoins.getTotal()), "Goodbye!",
+                                              myCoins.getTotal()),*/
+                                              stringBuild(myCoins),
+                                              "Goodbye!",
                                               JOptionPane.PLAIN_MESSAGE);
                 break;
             }
@@ -139,4 +154,20 @@ public class CoinCollectionClient {
         }
 
     }
+
+    public static String stringBuild(CoinCollection c) {
+        StringBuilder myString = new StringBuilder();
+        myString = myString.append("You have:\n");
+        for (int i = 0; i < Coin.values().length; i++) {
+            myString = myString.append(String.format("%s:%d\n",
+                                                     Coin.values()[i],
+                                                     c.getCount(
+                                                             Coin.values()[i])));
+        }
+        myString.append(String.format(
+                "TOTAL = %.2f\nGoodbye!",
+                c.getTotal()));
+        return myString.toString();
+    }
+
 }
