@@ -9,7 +9,7 @@
 * Project: csci205
 * Package: lab09
 * File: ExceptionExample
-* Description:
+* Description: Exception handler exercise
 *
 * ****************************************
  */
@@ -19,8 +19,9 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
+ * Exception handler exercise
  *
- * @author mac
+ * @author Yuxuan Huang
  */
 public class ExceptionExample {
 
