@@ -146,7 +146,7 @@ public class CashRegister {
         paymentCollected = 0;
         return change;
     }
-
+    /*
     public static void main(String[] args) {
         CashRegister myRegister = new CashRegister();
         myRegister.scanItem(0.55);
@@ -169,6 +169,6 @@ public class CashRegister {
 
         //Check for an invalid price
         //myRegister.scanItem(-0.50);
-    }
+    }*/
 
 }
