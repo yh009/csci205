@@ -9,7 +9,7 @@
 * Project: csci205
 * Package: lab09
 * File: CashRegisterTest
-* Description:
+* Description: Test file for CashRegister
 *
 * ****************************************
  */
@@ -222,6 +222,24 @@ public class CashRegisterTest extends TestCase {
 
         }
 
+    }
+
+    /**
+     * Test for equals method in Cash Register
+     */
+    public void testEquals() {
+        System.out.println("testEquals");
+        CashRegister instance2 = new CashRegister();
+        assertTrue(instance.equals(instance2));
+
+        instance.scanItem(1.00);
+        instance.scanItem(0.50);
+        instance.collectPayment(Money.QUARTER, 2);
+        assertFalse(instance.equals(instance2));
+        instance2.scanItem(1.00);
+        instance2.scanItem(0.50);
+        instance2.collectPayment(Money.QUARTER, 2);
+        assertTrue(instance.equals(instance2));
     }
 
 }

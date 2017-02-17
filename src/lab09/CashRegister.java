@@ -9,6 +9,7 @@ package lab09;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A custom exception thrown if the cash register tries to give change before
@@ -63,28 +64,29 @@ public class CashRegister {
     }
 
     /**
-     * @return the number of purchases in the current transaction
+     * @return - the number of purchases in the current transaction
      */
     public int getPurchaseCount() {
         return listOfItemPrices.size();
     }
 
     /**
-     * @return the list of purchases in the current transaction
+     * @return - the list of purchases in the current transaction
      */
     public List<Double> getListOfPurchases() {
         return listOfItemPrices;
     }
 
     /**
-     * @return get the total amount of the current transaction
+     * @return - get the total amount of the current transaction
      */
     public double getTransactionTotal() {
         return totalTransaction;
     }
 
     /**
-     * @return the total amount of payment collected for the current transaction
+     * @return - the total amount of payment collected for the current
+     * transaction
      */
     public double getPaymentCollected() {
         return paymentCollected;
@@ -93,7 +95,7 @@ public class CashRegister {
     /**
      * Records the sale of an item in a transaction.
      *
-     * @param price the price of the item. Precondition: price >= 0
+     * @param price - the price of the item. Precondition: price >= 0
      */
     public void scanItem(double price) {
 
@@ -116,8 +118,8 @@ public class CashRegister {
      * Enters the payment received from the customer; should be called once for
      * each monetary unit moneyType
      *
-     * @param moneyType the moneyType of the monetary units in the payment
-     * @param unitCount the number of monetary units
+     * @param moneyType - the moneyType of the monetary units in the payment
+     * @param unitCount - the number of monetary units
      */
     public void collectPayment(Money moneyType, int unitCount) {
         if (unitCount < 0) {
@@ -131,7 +133,7 @@ public class CashRegister {
      * Computes the change due and resets the machine for the next customer,
      * only if enough money was collected.
      *
-     * @return the change due to the customer
+     * @return - the change due to the customer
      * @throws ChangeException - thrown if not enough payment collected
      */
     public double giveChange() throws ChangeException {
@@ -146,6 +148,39 @@ public class CashRegister {
         paymentCollected = 0;
         return change;
     }
+
+    /**
+     * Compare the cash register to another cash register
+     *
+     * @param obj - the cash register object to be compared with
+     * @return - boolean if the objects are equivalent
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CashRegister other = (CashRegister) obj;
+        if (Double.doubleToLongBits(this.totalTransaction) != Double.doubleToLongBits(
+                other.totalTransaction)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.paymentCollected) != Double.doubleToLongBits(
+                other.paymentCollected)) {
+            return false;
+        }
+        if (!Objects.equals(this.listOfItemPrices, other.listOfItemPrices)) {
+            return false;
+        }
+        return true;
+    }
+
     /*
     public static void main(String[] args) {
         CashRegister myRegister = new CashRegister();
@@ -170,5 +205,4 @@ public class CashRegister {
         //Check for an invalid price
         //myRegister.scanItem(-0.50);
     }*/
-
 }
