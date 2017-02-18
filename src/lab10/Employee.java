@@ -23,6 +23,7 @@ package lab10;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 
 /**
  * Employee - represents an employee in the database system
@@ -41,6 +42,8 @@ public class Employee {
     private Date hireDate;
     private double salary;
 
+    private static HashSet<Integer> setOfIDs = new HashSet<Integer>();
+
     /**
      * Explicit construct to create new employee
      *
@@ -53,7 +56,15 @@ public class Employee {
      */
     public Employee(int empID, String firstName, String lastName, int ssNum,
                     Date hireDate, double salary) {
-        this.empID = empID;
+        if (empID <= 0 || setOfIDs.contains(empID) == true) {
+            this.empID = generateID();
+            setOfIDs.add(this.empID);
+        }
+        else {
+            this.empID = empID;
+            setOfIDs.add(this.empID);
+        }
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.ssNum = ssNum;
@@ -147,6 +158,24 @@ public class Employee {
             return false;
         }
         return true;
+    }
+
+    /**
+     * Generating unique ID for each employee
+     *
+     * @return a unique ID as Integer
+     */
+    private static Integer generateID() {
+        Integer ID = 1;
+        while (true) {
+            if (setOfIDs.contains(ID) == true) {
+                ID++;
+            }
+            else {
+                return ID;
+            }
+        }
+
     }
 
     /**
