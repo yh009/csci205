@@ -2,10 +2,9 @@
  * CSCI205 - Software Engineering and Design
  * Fall 2016
  *
- * TODO - Enter the details below!
- * Name: TODO
- * Date: TODO
- * Time: TODO
+ * Name: Yuxuan Huang
+ * Date: Feb 17, 2017
+ * Time: 9:35pm
  *
  * Project: csci205
  * Package: lab10
@@ -51,7 +50,8 @@ public class Employee {
      * @param hireDate
      * @param salary
      */
-    public Employee(int empID, String firstName, String lastName, int ssNum, Date hireDate, double salary) {
+    public Employee(int empID, String firstName, String lastName, int ssNum,
+                    Date hireDate, double salary) {
         this.empID = empID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -106,11 +106,10 @@ public class Employee {
         return this.salary;
     }
 
-
     /**
-     * Helper method to parse a date string into a date object. This is
-     * really here just to show how to deal with an exception that may
-     * be thrown in a method.
+     * Helper method to parse a date string into a date object. This is really
+     * here just to show how to deal with an exception that may be thrown in a
+     * method.
      *
      * @param sDate - a date string
      * @return a <code>Date</code> object
@@ -118,6 +117,30 @@ public class Employee {
      */
     public static Date parseHireDate(String sDate) throws ParseException {
         return df.parse(sDate);
+    }
+
+    /**
+     * Compare whether two objects are equal
+     *
+     * @param obj the object to be compared with
+     * @return boolean
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Employee other = (Employee) obj;
+        if (this.ssNum != other.ssNum) {
+            return false;
+        }
+        return true;
     }
 
     /**
