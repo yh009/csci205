@@ -15,7 +15,7 @@
  */
 package lab10;
 
-import java.util.Date;
+import java.text.ParseException;
 
 /**
  * Main program for testing Employee and Manager class
@@ -29,10 +29,12 @@ public class HRDBSystem {
      *
      * @param args
      */
-    public static void main(String[] args) {
-        Employee emp = new Employee(0, "Brian", "King", 123456, new Date(),
+    public static void main(String[] args) throws ParseException {
+        Employee emp = new Employee(0, "Brian", "King", 123456,
+                                    Employee.strToDate("2010-08-20"),
                                     60000);
-        Manager mgr = new Manager(1, "Keith", "Buffinton", 1010101, new Date(),
+        Manager mgr = new Manager(1, "Keith", "Buffinton", 1010101,
+                                  Employee.strToDate("1997-01-15"),
                                   150000, "ENGINEERING");
 
         System.out.println(emp);
