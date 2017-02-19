@@ -19,6 +19,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import static lab10.HRUtility.displayEmployee;
 import static lab10.HRUtility.displayEmployees;
+import static lab10.HRUtility.displayManager;
 
 /**
  * Main program for testing Employee and Manager class
@@ -32,11 +33,11 @@ public class HRDBSystem {
      *
      * @param args
      */
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException, ManagerException {
         ArrayList<Employee> empList = new ArrayList<Employee>(6);
         Manager mgr1 = new Manager(0, "Brian", "King", 123456,
                                    HRUtility.strToDate("2010-08-20"),
-                                   60000, "ENGINEERING");
+                                   60000, "HR");
         Manager mgr2 = new Manager(1, "Keith", "Buffinton", 1010101,
                                    HRUtility.strToDate("1997-01-15"),
                                    150000, "ENGINEERING");
@@ -65,6 +66,13 @@ public class HRDBSystem {
                                      100000);
         empList.add(emp6);
 
+        mgr1.addEmployee(emp1);
+        mgr1.addEmployee(emp2);
+        mgr1.addEmployee(emp3);
+        mgr2.addEmployee(emp4);
+        mgr2.addEmployee(emp5);
+        mgr2.addEmployee(emp6);
+
         /*
         System.out.println(mgr1);
         System.out.println(mgr2);
@@ -74,6 +82,8 @@ public class HRDBSystem {
         displayEmployee(mgr1);
         displayEmployee(mgr2);
         displayEmployees(empList);
+        displayManager(mgr1);
+        displayManager(mgr2);
 
     }
 

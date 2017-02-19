@@ -82,4 +82,12 @@ public final class HRUtility {
         return sDate;
     }
 
+    public static void displayManager(Manager mgr) {
+        System.out.printf("Manager:    %s %s\n", mgr.getFirstName(),
+                          mgr.getLastName());
+        System.out.printf("Department: %s\n", mgr.getDeptName());
+        System.out.printf("# Employees:%d\n", mgr.getEmpList().size());
+        displayEmployees(mgr.getEmpList());
+    }
+
 }

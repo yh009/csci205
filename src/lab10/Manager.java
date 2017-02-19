@@ -15,7 +15,9 @@
  */
 package lab10;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 enum DeptType {
     ENGINEERING, HR, ADMIN, STAFF, OTHER;
@@ -35,6 +37,8 @@ public class Manager extends Employee {
 
     private DeptType dept;
 
+    private List<Employee> empList = new ArrayList<Employee>();
+
     /**
      * Explicit constructor to construct a new manager
      *
@@ -45,17 +49,22 @@ public class Manager extends Employee {
      * @param hireDate
      * @param salary
      * @param deptName
+     * @param empList
      */
     public Manager(int empID, String firstName, String lastName, int ssNum,
-                   Date hireDate, double salary, String deptName) {
+                   Date hireDate, double salary, String deptName
+    ) {
         super(empID, firstName, lastName, ssNum, hireDate, salary);
         this.dept = DeptType.valueOf(deptName);
+        //this.empList = empList;
     }
 
     public Manager(int empID, String firstName, String lastName, int ssNum,
-                   Date hireDate, double salary, DeptType dept) {
+                   Date hireDate, double salary, DeptType dept
+    ) {
         super(empID, firstName, lastName, ssNum, hireDate, salary);
         this.dept = dept;
+        //this.empList = empList;
     }
 
     /**
@@ -94,6 +103,55 @@ public class Manager extends Employee {
         this.dept = DeptType.valueOf(deptName);
     }
 
+    /**
+     * Add an employee to the employee list
+     *
+     * @param emp - the employee to be added
+     * @throws ManagerException
+     */
+    public void addEmployee(Employee emp) throws ManagerException {
+        if (this.empList.contains(emp) == true) {
+            throw new ManagerException(String.format(
+                    "EMPLOYEE ALREADY IN LIST: %s %s", emp.getFirstName(),
+                    emp.getLastName()));
+        }
+        else {
+            this.empList.add(emp);
+        }
+
+    }
+
+    /**
+     * Get the employee list
+     *
+     * @return - the employee list
+     */
+    public List<Employee> getEmpList() {
+        return this.empList;
+    }
+
+    /**
+     * Remove an employee from the list
+     *
+     * @param emp - the employee to be removed
+     * @throws ManagerException
+     */
+    public void removeEmployee(Employee emp) throws ManagerException {
+        if (this.empList.contains(emp) == false) {
+            throw new ManagerException(String.format(
+                    "EMPLOYEE DOES NOT EXIST IN LIST: %s %s", emp.getFirstName(),
+                    emp.getLastName()));
+        }
+        else {
+            this.empList.remove(emp);
+        }
+    }
+
+    /**
+     * Return a string representation of the Employee
+     *
+     * @return the String of comma delimited values
+     */
     @Override
     public String toString() {
         return super.toString() + ",MANAGER," + this.getDeptName(); //To change body of generated methods, choose Tools | Templates.

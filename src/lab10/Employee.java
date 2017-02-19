@@ -20,8 +20,6 @@ package lab10;
  *
  * @author Brian King
  */
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 
@@ -31,9 +29,6 @@ import java.util.HashSet;
  * @author brk009
  */
 public class Employee {
-
-    private static SimpleDateFormat empDateFormat = new SimpleDateFormat(
-            "yyyy-MM-dd");
 
     private int empID;
     private String firstName;
@@ -119,24 +114,6 @@ public class Employee {
     }
 
     /**
-     * Helper method to parse a date string into a date object. This is really
-     * here just to show how to deal with an exception that may be thrown in a
-     * method.
-     *
-     * @param sDate - a date string
-     * @return a <code>Date</code> object
-     * @throws ParseException if the string cannot be parse correctly.
-     */
-    public static Date strToDate(String sDate) throws ParseException {
-        return empDateFormat.parse(sDate);
-    }
-
-    public static String dateToStr(Date date) {
-        String sDate = empDateFormat.format(date);
-        return sDate;
-    }
-
-    /**
      * Compare whether two objects are equal
      *
      * @param obj the object to be compared with
@@ -187,7 +164,7 @@ public class Employee {
     public String toString() {
         String s = this.empID + "," + this.lastName + "," + this.firstName;
         s += String.format(",%09d", this.ssNum);
-        s += "," + dateToStr(this.hireDate);
+        s += "," + HRUtility.dateToStr(this.hireDate);
         s += String.format(",%.2f", this.salary);
         return s;
     }
