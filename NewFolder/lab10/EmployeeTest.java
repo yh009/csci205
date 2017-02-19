@@ -36,7 +36,7 @@ public class EmployeeTest extends TestCase {
     protected void setUp() throws Exception {
         super.setUp();
         emp = new Employee(1, "Smith", "Jane", 34354436,
-                           Employee.strToDate("1999-09-15"),
+                           HRUtility.strToDate("1999-09-15"),
                            100000);
     }
 
@@ -85,13 +85,13 @@ public class EmployeeTest extends TestCase {
         System.out.println("equals");
         //Object obj = null;
         Employee instance = new Employee(1, "Smith", "Jane", 34354436,
-                                         Employee.strToDate("1999-09-15"),
+                                         HRUtility.strToDate("1999-09-15"),
                                          100000);;
         boolean expResult = true;
         boolean result = instance.equals(emp);
         assertEquals(expResult, result);
         instance = new Employee(1, "Smith", "Jane", 34354000,
-                                Employee.strToDate("1999-09-15"),
+                                HRUtility.strToDate("1999-09-15"),
                                 100000);;
         expResult = false;
         result = instance.equals(emp);
