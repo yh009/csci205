@@ -17,12 +17,23 @@ package lab10;
 
 import java.util.Date;
 
+enum DeptType {
+    ENGINEERING, HR, ADMIN, STAFF, OTHER;
+    //private String value;
+
+    //DeptType(String value) {
+    //this.value = value;
+    //}
+}
+
 /**
  * Manager is a subclass of Employee. Exercise for lab10
  *
  * @author Yuxuan Huang
  */
 public class Manager extends Employee {
+
+    private DeptType dept;
 
     /**
      * Explicit constructor to construct a new manager
@@ -38,9 +49,32 @@ public class Manager extends Employee {
     public Manager(int empID, String firstName, String lastName, int ssNum,
                    Date hireDate, double salary, String deptName) {
         super(empID, firstName, lastName, ssNum, hireDate, salary);
-        this.deptName = deptName;
+        this.dept = DeptType.valueOf(deptName);
     }
-    private String deptName;
+
+    public Manager(int empID, String firstName, String lastName, int ssNum,
+                   Date hireDate, double salary, DeptType dept) {
+        super(empID, firstName, lastName, ssNum, hireDate, salary);
+        this.dept = dept;
+    }
+
+    /**
+     * Get the department type
+     *
+     * @return department type
+     */
+    public DeptType getDept() {
+        return this.dept;
+    }
+
+    /**
+     * Set the department type
+     *
+     * @param dept - the department type to be set
+     */
+    public void setDept(DeptType dept) {
+        this.dept = dept;
+    }
 
     /**
      * Get the value of deptName
@@ -48,7 +82,7 @@ public class Manager extends Employee {
      * @return the value of deptName
      */
     public String getDeptName() {
-        return deptName;
+        return dept.name();
     }
 
     /**
@@ -57,7 +91,7 @@ public class Manager extends Employee {
      * @param deptName new value of deptName
      */
     public void setDeptName(String deptName) {
-        this.deptName = deptName;
+        this.dept = DeptType.valueOf(deptName);
     }
 
     @Override
