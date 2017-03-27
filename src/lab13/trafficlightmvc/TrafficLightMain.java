@@ -27,23 +27,26 @@ public class TrafficLightMain extends Application {
 
     private TrafficLightView theView;
     private TrafficLightController theCtrl;
+    //private TrafficLightModel theModel;
+
+    @Override
+    public void init() throws Exception {
+        super.init();
+        this.theView = new TrafficLightView();
+        this.theCtrl = new TrafficLightController(this.theView);
+        //this.theModel = new TrafficLightModel();
+    }
 
     @Override
     public void start(Stage primaryStage) {
 
-        theCtrl = new TrafficLightController(theView);
+        //theCtrl = new TrafficLightController(theView);
         Scene scene = new Scene(theView.getRootNode());
         primaryStage.sizeToScene();
 
         primaryStage.setTitle("Traffic Light");
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
-
-    @Override
-    public void init() throws Exception {
-        super.init();
-        theView = new TrafficLightView();
     }
 
     /**

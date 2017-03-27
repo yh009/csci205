@@ -16,11 +16,9 @@
 package lab13.trafficlightmvc;
 
 import java.util.ArrayList;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Paint;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 /**
@@ -31,24 +29,36 @@ public class TrafficLightView {
 
     private VBox root;
     private ArrayList<Circle> lights;
+    private ArrayList<Color> colors;
+    //private TrafficLightModel theModel;
+    public Color red;
+    public Color yellow;
+    public Color green;
 
     public TrafficLightView() {
+        //this.theModel = theModel;
+        red = Color.DARKRED;
+        yellow = Color.DARKKHAKI;
+        green = Color.DARKGREEN;
+        colors = new ArrayList<>();
+        colors.add(red);
+        colors.add(yellow);
+        colors.add(green);
+
         root = new VBox(10);
         root.setAlignment(Pos.CENTER);
         root.setMinHeight(300);
         lights = new ArrayList<>();
-        Circle lr = new Circle(50, Paint.valueOf("DARKRED"));
-        Circle ly = new Circle(50, Paint.valueOf("DARKKHAKI"));
-        Circle lg = new Circle(50, Paint.valueOf("DARKGREEN"));
-        lr.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-
-            }
-        });
+        Circle lr = new Circle(50, colors.get(0));
+        Circle ly = new Circle(50, colors.get(1));
+        Circle lg = new Circle(50, colors.get(2));
+        //lr.setOnMouseClicked(new TrafficLightController(this));
+        //ly.setOnMouseClicked(new TrafficLightController(this));
+        //lg.setOnMouseClicked(new TrafficLightController(this));
         lights.add(lr);
         lights.add(ly);
         lights.add(lg);
+
         root.getChildren().addAll(lights);
 
     }
@@ -59,6 +69,10 @@ public class TrafficLightView {
 
     public ArrayList<Circle> getCircles() {
         return lights;
+    }
+
+    public ArrayList<Color> getColors() {
+        return colors;
     }
 
 }

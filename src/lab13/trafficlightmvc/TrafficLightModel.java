@@ -23,7 +23,7 @@ import javafx.beans.property.SimpleBooleanProperty;
  * @author mac
  */
 public enum TrafficLightModel {
-    RED, YELLOW, GREEN;
+    RED, YELLOW, GREEN, DARKRED, DARKKHAKI, DARKGREEN;
 
     private BooleanProperty isOn;
 
